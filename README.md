@@ -4,10 +4,10 @@
 
 
 =======  
-25/10/2024 - Removed files bnssg_palette.R and bnssg_theme.R (FB)
-25/10/2024 - Amended BNSSG_functions.R to include the theme and palette functions
-17/10/2024 - Added Practice to Locality lookup.  % of a practice's registered population in each locality (AS)
-30/09/2024 - Added Postcode to Locality lookup.  % of a postcode area in each locality (AS)
+25/10/2024 - Removed files bnssg_palette.R and bnssg_theme.R (FB)  
+25/10/2024 - Amended BNSSG_functions.R to include the theme and palette functions (FB)   
+17/10/2024 - Added Practice to Locality lookup.  % of a practice's registered population in each locality (AS)  
+30/09/2024 - Added Postcode to Locality lookup.  % of a postcode area in each locality (AS)  
 24/09/2024 - Added GP locations for mapping.sql to replace the excel file 'lookup_gp_gis.csv' which we use in R maps (AS)
 05/09/2024 - Amended ISR demo script to join activity to population (rather than visa versa)  
 21/08/2024 - Added script to link new LSOA 2021 codes to PDS population  
