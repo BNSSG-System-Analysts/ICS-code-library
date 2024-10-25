@@ -1,6 +1,6 @@
 bnssgtheme <- function(base_size = 12, base_family = "sans",base_colour = "black"){theme_bw() %+replace% theme(
-  axis.title.x = element_text(size = 16, color = '#003087', face = 'bold', family = "sans", margin = margin(t = 0, r = 20, b = 0, l = 0)), #x Axis Titles
-  axis.title.y = element_text(size = 16, color = '#003087', angle = 90, face = 'bold', family = "sans", margin = margin(t = 0, r = 20, b = 0, l = 0)), #y Axis Titles
+  axis.title.x = element_text(size = 16, color = '#1C1F62', face = 'bold', family = "sans", margin = margin(t = 0, r = 20, b = 0, l = 0)), #x Axis Titles
+  axis.title.y = element_text(size = 16, color = '#1C1F62', angle = 90, face = 'bold', family = "sans", margin = margin(t = 0, r = 20, b = 0, l = 0)), #y Axis Titles
   axis.text = element_text(size = 12,  family = "sans", color = 'black'), #Axis text
   panel.border = element_blank(), #remove plot border
   panel.grid.major.x = element_blank(), #no major vertical lines
@@ -13,7 +13,7 @@ bnssgtheme <- function(base_size = 12, base_family = "sans",base_colour = "black
   legend.title = element_blank(), #No legend title
   legend.text = element_text(size = 12, family = "sans",),
   legend.key.size = unit(0.3, "cm"),
-  plot.title = element_text(size = 16, color = '#003087', face="bold", margin = margin(b = 10, t=10), hjust=0),
+  plot.title = element_text(size = 16, color = '#1C1F62', face="bold", margin = margin(b = 10, t=10), hjust=0),
   plot.title.position = "plot", #suggested by via FB to align title to left of Y acis labels
   plot.subtitle = element_text(size = 10, margin = margin(b = 10), hjust=0),
     # Customize facet title appearance
@@ -23,38 +23,39 @@ bnssgtheme <- function(base_size = 12, base_family = "sans",base_colour = "black
 }
 
 
-## Colour Functions ####
+#### Colour Palette ####
 
-bnssg_colours <- c(
-  `white`           = "#FFFFFF",
-  `light grey`      = "#999999",
-  `light pink`      = "#D093B6",
-  `mid pink`        = "#8d488d",
-  `light blue`      = "#8AC0E5",
-  `dark pink`       = "#853358",
-  `mid blue`        = "#2472AA",
-  `dark blue`       = "#003087",
-  `dark grey`       = "#333333")
+##Sets the main colour palette:
+bnssgcols <- c(`white` = "#FFFFFF",`midnight blue` = "#1C1F62",
+               `dark Violet` = "#8605E4",`royal blue` = "#075EDB",
+               `grass green` = "#00AE5F",`brilliant purple` = "#E16CFF",
+               `vivid blue` = "#10CFFB",`lime green` = "#BFFF46",
+               `red` = "#CC1166",`orange` = "#F6B200", `teal` = "#008080")
 
+##Tells R Where to look for color codes, from the name
 bnssg_cols <- function(...) {
   cols <- c(...)
   
   if (is.null(cols))
-    return (bnssg_colours)
+    return (bnssgcols)
   
-  bnssg_colours[cols]
+  bnssgcols[cols]
 }
-
 
 ##Set colour 'names'scheme' names:
 bnssg_palettes <- list(
-  "main"  = bnssg_cols("light grey", "light pink", "mid pink", "light blue", "dark pink",
-                       "mid blue", "dark blue", "dark grey"),
-  "pgb" = bnssg_cols("dark pink", "mid pink", "light pink", "light grey", "light blue", "mid blue", "dark blue"),
-  "pgblite" = bnssg_cols("dark pink", "light grey", "dark blue"),
-  "pink" = bnssg_cols("dark pink", "mid pink", "light pink"),
-  "blue" = bnssg_cols("dark blue", "mid blue", "light blue"),
-  "mapcol" = bnssg_cols("dark blue", "mid blue", "light blue","light grey","white") #added by SH as useful for leaflet maps
+  "main"  = bnssg_cols("midnight blue","royal blue","dark violet","brilliant purple",
+                       "lime green","grass green","teal"),
+  "pgb" = bnssg_cols("midnight blue","brilliant purple","grass green",
+                     "royal blue"),
+  "bgg" = bnssg_cols("midnight blue","grass green","lime green"),
+  "midnight_blue" = c("#1C1F62","#C3C5EE","#888BDD","#4C51CC","#15174A","#0E1031"),
+  "dark_violet" = c("#8504E3","#E7C8FE","#D091FD","#B85AFC","#6403AA","#420272"),
+  "royal_blue" = c("#045EDA","#C6DEFE","#8EBDFD","#559BFC","#0346A3","#022F6D"),
+  "grass_green" = c("#00AD5F","#BCFFE1","#78FFC2","#35FFA4","#008247","#005730"),
+  "brilliant_purple" = c("#E06CFF","#F9E2FF","#F3C4FF","#ECA7FF","#CD11FF","#8F00B6"),
+  "vivid_blue" = c("#0DCFFA","#CFF5FE","#9EECFD","#6EE2FC","#049FC1","#036A81"),
+  "lime_green" = c("#BEFE45","#F2FFDA","#E5FFB5","#D8FE8F","#9EF101","#69A101")
 )
 
 ##Function so that the colours can be found from the scheme name
@@ -68,13 +69,13 @@ bnssg_pal <- function(palette, reverse = FALSE, ...) {
 
 #' Color scale constructor for BNSSG colors
 #'
-#' @param palette Character name of palette in drsimonj_palettes
+#' @param palette Character name of palette in bnssg_palettes
 #' @param discrete Boolean indicating whether color aesthetic is discrete or not
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
-scale_color_bnssg <- function(palette = "main", discrete = FALSE, reverse = FALSE, ...) {
+scale_colour_bnssg <- function(palette = "main", discrete = FALSE, reverse = FALSE, ...) {
   pal <- bnssg_pal(palette = palette, reverse = reverse)
   
   if (discrete) {
