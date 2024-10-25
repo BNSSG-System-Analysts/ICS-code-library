@@ -2,14 +2,14 @@ rm(list = ls())
 #run R script from Git
 #note the Git path needs to be the RAW path,, it will be personal to you
 source(
-"https://raw.githubusercontent.com/BNSSG-PHM/code-and-template-library/main/R%20and%20Quarto/ISR%20function.R?token=GHSAT0AAAAAACGM6K46QAENPPAVOIOBIWFEZRLNDXA"  
+"https://raw.githubusercontent.com/BNSSG-PHM/code-and-template-library/main/R%20and%20Quarto/ISR%20function.R?token=*******"  
 )
 
 
 
 #run SQL script from Git
 #note the Git path needs to be the RAW path, it will be personal to you
-url <- "https://raw.githubusercontent.com/BNSSG-PHM/code-and-template-library/main/SQL/swd_activity_ecds.sql?token=GHSAT0AAAAAACGM6K46PFBNBLNP5GTJPW6UZRLNAPQ"
+url <- "https://raw.githubusercontent.com/BNSSG-PHM/code-and-template-library/main/SQL/swd_activity_ecds.sql?token=********"
 
 
 con_string <- c("driver={SQL Server};server=xsw-000-sp09.xswhealth.nhs.uk;
